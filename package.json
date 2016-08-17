@@ -1,0 +1,126 @@
+{
+  "name": "react-boilerplate",
+  "version": "0.1.0",
+  "description": "Starter boilerplate for creating apps with React",
+  "author": "Alessandro Fael Garcia <alessfg@hotmail.com>",
+  "license": "MIT",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "rimraf build && babel-node tools/build.js",
+    "lint:src": "eslint src/**/*.js",
+    "lint:test": "eslint tests/**/*.js --rule import/no-extraneous-dependencies: off",
+    "lint:tools": "eslint tools/**/*.js --rule no-console: off --rule import/no-extraneous-dependencies: off",
+    "lint": "npm run lint:src && npm run lint:test && npm run lint:tools",
+    "start": "babel-node tools/server.js",
+    "test": "ava --verbose",
+    "test:watch": "npm test -- --watch"
+  },
+  "ava": {
+    "babel": "inherit",
+    "require": [
+      "babel-register",
+      "./test/helpers/setup-browser-env.js"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "es2016",
+      "react"
+    ],
+    "plugins": [
+      "react-hot-loader/babel"
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true
+    },
+    "extends": [
+      "airbnb",
+      "plugin:ava/recommended"
+    ],
+    "plugins": [
+      "ava"
+    ],
+    "rules": {
+      "linebreak-style": "off",
+      "react/jsx-filename-extension": [
+        "error",
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "aphrodite": "^0.5.0",
+    "babel-polyfill": "^6.13.0",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-hot-loader": "^3.0.0-beta.2",
+    "react-redux": "^4.4.5",
+    "react-router": "^2.6.1",
+    "react-router-redux": "^4.0.5",
+    "redux": "^3.5.2",
+    "redux-saga": "^0.11.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.4.0",
+    "ava": "^0.16.0",
+    "babel-cli": "^6.11.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-es2016": "^6.11.3",
+    "babel-preset-react": "^6.11.1",
+    "babel-register": "^6.11.6",
+    "chalk": "^1.1.3",
+    "css-loader": "^0.23.1",
+    "enzyme": "^2.4.1",
+    "eslint": "^3.3.0",
+    "eslint-config-airbnb": "^10.0.1",
+    "eslint-loader": "^1.5.0",
+    "eslint-plugin-ava": "^3.0.0",
+    "eslint-plugin-import": "^1.13.0",
+    "eslint-plugin-jsx-a11y": "^2.1.0",
+    "eslint-plugin-react": "^6.1.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "^2.22.0",
+    "jsdom": "^9.4.2",
+    "opn": "^4.0.2",
+    "postcss-loader": "^0.10.0",
+    "react-addons-test-utils": "^15.3.0",
+    "rimraf": "^2.5.4",
+    "sinon": "^1.17.5",
+    "style-loader": "^0.13.1",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "keywords": [
+    "aphrodite",
+    "ava",
+    "babel",
+    "boilerplate",
+    "enzyme",
+    "eslint",
+    "hot-reload",
+    "react",
+    "react-router",
+    "redux",
+    "redux-saga",
+    "webpack"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alessfg/react-boilerplate"
+  },
+  "homepage": "https://github.com/alessfg/react-boilerplate#readme",
+  "bugs": {
+    "url": "https://github.com/alessfg/react-boilerplate/issues"
+  }
+}
